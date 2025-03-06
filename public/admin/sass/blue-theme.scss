@@ -2,15 +2,15 @@
 
   --bs-heading-color: #e6ecf0;
   --bs-body-color: #d3d7dc;
-  --bs-body-bg: #0f1535;
-  --bs-body-bg-2: #181f4a;
+  --bs-body-bg: #000000;
+  --bs-body-bg-2: #000000;
   --bs-transparent-bg: rgba(255, 255, 255, 0.10);
   --bs-border-color-translucent: rgba(226, 232, 240, 0.15);
   --bs-border-color: rgba(255, 255, 255, 0.15);
   --sticky-header-bg: rgba(255, 255, 255, 0.45);
-  --bs-disabled-bg: #4b5481;
-  --bs-tertiary-bg: #181f4a;
-  --bs-card-bg: #070c29;
+  --bs-disabled-bg: #020203;
+  --bs-tertiary-bg: #2d2d2d;
+  --bs-card-bg: #353535;
 
 
   background-image: url(../assets/images/bg-themes/body-background-1.webp);
@@ -41,7 +41,7 @@
   }
 
   .bg-light {
-    background-color: #171e44 !important;
+    background-color: #212121 !important;
   }
 
   .bg-none {
@@ -49,7 +49,7 @@
    
   }
   .card {
-    background-image: linear-gradient(127.09deg, rgba(6, 11, 40, 0.94) 19.41%, rgba(10, 14, 35, 0.49) 76.65%);
+    background-image: linear-gradient(127.09deg, rgba(31, 31, 31, 0.94) 19.41%, rgba(10, 14, 35, 0.49) 76.65%);
   }
 
   .card-title {
