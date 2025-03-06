@@ -18,4 +18,9 @@ class UserController extends Controller
     {
         return view('user.dashboard');
     }
+
+    public function createWallPoster()
+    {
+        return view('user.wallposter.create');
+    }
 }

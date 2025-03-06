@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('', [UserController::class, 'userLogin'])->name('login');
 Route::get('user/register', [UserController::class, 'userRegister'])->name('user-register');
 Route::get('user/dashboard', [UserController::class, 'userDashboard'])->name('user-dashboard');
+Route::get('user/wallposter', [UserController::class, 'createWallPoster'])->name('user-wallposter');
