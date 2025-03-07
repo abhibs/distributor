@@ -78,7 +78,7 @@
                                     <div class="col-12">
                                         <div class="text-start">
                                             <p class="mb-0">Don't have an account yet? <a
-                                                    href="auth-basic-register.html">Sign up here</a>
+                                                    href="{{ route('user-register') }}">Sign up here</a>
                                             </p>
                                         </div>
                                     </div>

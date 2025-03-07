@@ -86,14 +86,14 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="text-start">
-                                        <p class="mb-0">Already have an account? <a href="auth-basic-login.html">Sign
+                                        <p class="mb-0">Already have an account? <a href="{{ route('login') }}">Sign
                                                 in here</a></p>
                                     </div>
                                 </div>
                             </form>
                         </div>
 
-                        
+
 
                     </div>
                 </div>

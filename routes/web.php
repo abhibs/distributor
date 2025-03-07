@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\PanShopController;
+use App\Http\Controllers\ProjectorController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WallPosterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('', [UserController::class, 'userLogin'])->name('login');
 Route::get('user/register', [UserController::class, 'userRegister'])->name('user-register');
 Route::get('user/dashboard', [UserController::class, 'userDashboard'])->name('user-dashboard');
-Route::get('user/wallposter', [UserController::class, 'createWallPoster'])->name('user-wallposter');
+Route::get('user/wallposter/create', [WallPosterController::class, 'create'])->name('user-wallposter-create');
+Route::get('user/wallposter/index', [WallPosterController::class, 'index'])->name('user-wallposter-index');
+
+Route::get('user/panshop/create', [PanShopController::class, 'create'])->name('user-panshop-create');
+Route::get('user/panshop/index', [PanShopController::class, 'index'])->name('user-panshop-index');
+
+Route::get('user/projector/create', [ProjectorController::class, 'create'])->name('user-projector-create');
+Route::get('user/projector/index', [ProjectorController::class, 'index'])->name('user-projector-index');
