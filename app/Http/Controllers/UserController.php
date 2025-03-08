@@ -74,11 +74,18 @@ class UserController extends Controller
     public function userDashboard()
     {
         $user = Auth::guard('web')->user();
-        return view('user.dashboard',compact('user'));
+        return view('user.dashboard', compact('user'));
     }
 
-    public function createWallPoster()
+
+
+    public function userLogout()
     {
-        return view('user.wallposter.create');
+        Auth::logout();
+        $notification = array(
+            'message' => 'User Logout Successfully.',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('login')->with($notification);
     }
 }

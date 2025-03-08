@@ -33,6 +33,7 @@ Route::group(
             Route::post('/login/post', 'userLoginPost')->name('user-login-post');
             Route::group(['middleware' => 'auth:web'], function () {
                 Route::get('/dashboard', 'userDashboard')->name('user-dashboard');
+                Route::get('/logout', 'userLogout')->name('user-logout');
             });
         });
 
