@@ -35,10 +35,12 @@
     <div class="container-fluid my-5">
         <div class="row">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5 col-xxl-5 mx-auto">
-                <div class="card rounded-4 mb-0 border-top border-4 border-primary border-gradient-1">
+                <div class="card rounded-4 mb-0 border-top border-bottom border-start border-end border-4 border-primary border-gradient-1">
                     <div class="card-body p-5">
-                        <img src="{{ asset('admin/assets/images/logo1.png') }}" class="mb-4" width="145"
-                            alt="">
+                        <div class="text-center">
+                            <img src="{{ asset('admin/assets/images/logo1.png') }}" class="mb-4" width="145"
+                                alt="">
+                        </div>
                         {{-- <h4 class="fw-bold">Get Started Now</h4>
                         <p class="mb-0">Enter your credentials to create your account</p> --}}
 
@@ -86,7 +88,7 @@
                                                 class="bi bi-eye-slash-fill"></i></a>
                                     </div>
                                 </div>
-                                {{--                                 
+                                {{--
                                 <div class="col-12">
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
@@ -97,7 +99,7 @@
                                 </div> --}}
                                 <div class="col-12">
                                     <div class="d-grid">
-                                        <button type="submit" class="btn btn-grd-danger">Register</button>
+                                        <button type="submit" class="btn btn-dark text-white">Register</button>
                                     </div>
                                 </div>
                                 <div class="col-12">
