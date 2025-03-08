@@ -38,27 +38,27 @@
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Country</label>
                                     <input class="form-control" type="text" name="country"
-                                        value="{{ $location->country }}" readonly aria-label="default input example">
+                                        value="{{ @$location->country }}" readonly aria-label="default input example">
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Region</label>
                                     <input class="form-control" type="text" name="region"
-                                        value="{{ $location->region }}" readonly aria-label="default input example">
+                                        value="{{ @$location->region }}" readonly aria-label="default input example">
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">City</label>
-                                    <input class="form-control" type="text" name="city" value="{{ $location->city }}"
+                                    <input class="form-control" type="text" name="city" value="{{ @$location->city }}"
                                         readonly aria-label="default input example">
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Latitude</label>
                                     <input class="form-control" type="text" name="latitude"
-                                        value="{{ $location->latitude }}" readonly aria-label="default input example">
+                                        value="{{ @$location->latitude }}" readonly aria-label="default input example">
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Longitude</label>
                                     <input class="form-control" type="text" name="longitude"
-                                        value="{{ $location->longitude }}" readonly aria-label="default input example">
+                                        value="{{ @$location->longitude }}" readonly aria-label="default input example">
                                 </div>
 
                                 <div class="mb-3">

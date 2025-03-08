@@ -29,7 +29,7 @@ Route::group(
     function () {
         Route::controller(UserController::class)->group(function () {
             Route::get('/register', 'userRegister')->name('user-register');
-            Route::get('/register/post', 'userRegisterPost')->name('user-register-post');
+            Route::post('/register/post', 'userRegisterPost')->name('user-register-post');
             Route::post('/login/post', 'userLoginPost')->name('user-login-post');
             Route::group(['middleware' => 'auth:web'], function () {
                 Route::get('/dashboard', 'userDashboard')->name('user-dashboard');

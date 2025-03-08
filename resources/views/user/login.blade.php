@@ -30,7 +30,7 @@
 
 </head>
 
-<body style="background-color: #1d1d1d">
+<body>
 
     <!--authentication-->
     <div class="auth-basic-wrapper d-flex align-items-center justify-content-center">

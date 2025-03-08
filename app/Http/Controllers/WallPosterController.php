@@ -9,7 +9,8 @@ class WallPosterController extends Controller
 {
     public function create()
     {
-        $ip = request()->ip();
+        // $ip = request()->ip();
+        $ip = "192.168.1.40";
         $location = Location::get($ip);
         // dd($location);
         return view('user.wallposter.create', compact('location'));

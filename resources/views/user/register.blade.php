@@ -27,7 +27,7 @@
 
 </head>
 
-<body style="background-color: #1d1d1d">
+<body>
 
 
     <!--authentication-->
