@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register</title>
+    <title>User Register</title>
     <!--favicon-->
     <link rel="icon" href="{{ asset('admin/assets/images/favicon-32x32.png') }}" type="image/png">
     <!-- loader-->
@@ -39,46 +39,62 @@
                     <div class="card-body p-5">
                         <img src="{{ asset('admin/assets/images/logo1.png') }}" class="mb-4" width="145"
                             alt="">
-                        <h4 class="fw-bold">Get Started Now</h4>
-                        <p class="mb-0">Enter your credentials to create your account</p>
+                        {{-- <h4 class="fw-bold">Get Started Now</h4>
+                        <p class="mb-0">Enter your credentials to create your account</p> --}}
 
                         <div class="form-body my-4">
-                            <form class="row g-3">
+                            <form class="row g-3" method="POST" action="{{ route('user-register-post') }}">
+                                @csrf
                                 <div class="col-12">
-                                    <label for="inputUsername" class="form-label">Username</label>
-                                    <input type="email" class="form-control" id="inputUsername" placeholder="Jhon">
+                                    <label for="inputUsername" class="form-label">User Name</label>
+                                    <input type="text" class="form-control" name="name" id="inputUsername"
+                                        placeholder="Enter Your Name">
                                 </div>
                                 <div class="col-12">
-                                    <label for="inputEmailAddress" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" id="inputEmailAddress"
-                                        placeholder="example@user.com">
+                                    <label for="inputPhone" class="form-label">User Phone Number</label>
+                                    <input type="number" class="form-control" id="inputPhone" name="phone"
+                                        placeholder="Enter Your Phone Number">
                                 </div>
+                                <div class="col-12">
+                                    <label for="inputUserDesignation" class="form-label">User Designation</label>
+                                    <input type="text" class="form-control" name="designation"
+                                        id="inputUserDesignation" placeholder="Enter Your Designation">
+                                </div>
+                                <div class="col-12">
+                                    <label for="inputUserAadhar" class="form-label">User Aadhar Card Number</label>
+                                    <input type="text" class="form-control" name="aadhar" id="inputUserAadhar"
+                                        placeholder="Enter Your Aadhar Card Number">
+                                </div>
+
                                 <div class="col-12">
                                     <label for="inputChoosePassword" class="form-label">Password</label>
                                     <div class="input-group" id="show_hide_password">
                                         <input type="password" class="form-control border-end-0"
-                                            id="inputChoosePassword" value="12345678" placeholder="Enter Password">
+                                            id="inputChoosePassword" name="password" value="12345678"
+                                            placeholder="Enter Password">
                                         <a href="javascript:;" class="input-group-text bg-transparent"><i
                                                 class="bi bi-eye-slash-fill"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <label for="inputSelectCountry" class="form-label">Country</label>
-                                    <select class="form-select" id="inputSelectCountry"
-                                        aria-label="Default select example">
-                                        <option selected="">India</option>
-                                        <option value="1">United Kingdom</option>
-                                        <option value="2">America</option>
-                                        <option value="3">Dubai</option>
-                                    </select>
+                                    <label for="inputChoosePassword" class="form-label">Confirmation Password</label>
+                                    <div class="input-group" id="show_hide_password">
+                                        <input type="password" class="form-control border-end-0"
+                                            id="inputChoosePassword" value="12345678" name="password_confirmation"
+                                            placeholder="Enter Confirmation Password">
+                                        <a href="javascript:;" class="input-group-text bg-transparent"><i
+                                                class="bi bi-eye-slash-fill"></i></a>
+                                    </div>
                                 </div>
+                                {{--                                 
                                 <div class="col-12">
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
-                                        <label class="form-check-label" for="flexSwitchCheckChecked">I read and agree to
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">I read and agree
+                                            to
                                             Terms &amp; Conditions</label>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-12">
                                     <div class="d-grid">
                                         <button type="submit" class="btn btn-grd-danger">Register</button>
@@ -86,7 +102,8 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="text-start">
-                                        <p class="mb-0">Already have an account? <a href="{{ route('login') }}">Sign
+                                        <p class="mb-0">Already have an account? <a
+                                                href="{{ route('login') }}">Sign
                                                 in here</a></p>
                                     </div>
                                 </div>

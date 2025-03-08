@@ -1,12 +1,6 @@
 @extends('user.layout.app')
 @section('content')
-
-
-
-<div class="main-content">
-            <!--breadcrumb-->
-        <h1 class="text-center">Shahil</h1>
-        </div>
-
-
-      @endsection
+    <div class="main-content">
+        <h1>Hello, {{ @$user->name }}</h1>
+    </div>
+@endsection

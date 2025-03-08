@@ -28,25 +28,26 @@
     <link href="{{ asset('admin/sass/semi-dark.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/sass/bordered-theme.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/sass/responsive.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
 </head>
 
 <body>
 
     <!--start header-->
-   @include('user.layout.header')
+    @include('user.layout.header')
     <!--end top header-->
 
 
     <!--start sidebar-->
-   @include('user.layout.sidebar')
-  
+    @include('user.layout.sidebar')
+
     <!--end sidebar-->
 
     <!--start main wrapper-->
-   <div class="main-wrapper">
-    @yield('content')
-   </div>
+    <div class="main-wrapper">
+        @yield('content')
+    </div>
     <!--end main wrapper-->
 
 
@@ -56,7 +57,7 @@
 
 
     <!--start footer-->
-    @include('user.layout.footer')
+    {{-- @include('user.layout.footer') --}}
     <!--end footer-->
 
     <!--start cart-->
@@ -202,12 +203,12 @@
 
 
     <!--start switcher-->
-    <button class="btn btn-grd btn-grd-primary position-fixed bottom-0 end-0 m-3 d-flex align-items-center gap-2"
+    {{-- <button class="btn btn-grd btn-grd-primary position-fixed bottom-0 end-0 m-3 d-flex align-items-center gap-2"
         type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop">
         <i class="material-icons-outlined">tune</i>Customize
-    </button>
+    </button> --}}
 
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="staticBackdrop">
+    {{-- <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="staticBackdrop">
         <div class="offcanvas-header border-bottom h-70">
             <div class="">
                 <h5 class="mb-0">Theme Customizer</h5>
@@ -271,7 +272,7 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--start switcher-->
 
     <!--bootstrap js-->
@@ -290,7 +291,26 @@
     </script>
     <script src="{{ asset('admin/assets/js/dashboard2.js') }}"></script>
     <script src="{{ asset('admin/assets/js/main.js') }}"></script>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
 
 </body>
 
