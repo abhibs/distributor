@@ -37,28 +37,28 @@
                             <form action="" method="post">
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Country</label>
-                                    <input class="form-control" type="text" name="country" value="India" readonly
-                                        aria-label="default input example">
+                                    <input class="form-control" type="text" name="country"
+                                        value="{{ $location->country }}" readonly aria-label="default input example">
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Region</label>
-                                    <input class="form-control" type="text" name="region" value="Karnataka" readonly
-                                        aria-label="default input example">
+                                    <input class="form-control" type="text" name="region"
+                                        value="{{ $location->region }}" readonly aria-label="default input example">
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">City</label>
-                                    <input class="form-control" type="text" name="city" value="Bengaluru" readonly
-                                        aria-label="default input example">
+                                    <input class="form-control" type="text" name="city" value="{{ $location->city }}"
+                                        readonly aria-label="default input example">
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Latitude</label>
-                                    <input class="form-control" type="text" name="latitude" value="12.9753" readonly
-                                        aria-label="default input example">
+                                    <input class="form-control" type="text" name="latitude"
+                                        value="{{ $location->latitude }}" readonly aria-label="default input example">
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Longitude</label>
-                                    <input class="form-control" type="text" name="longitude" value="77.591" readonly
-                                        aria-label="default input example">
+                                    <input class="form-control" type="text" name="longitude"
+                                        value="{{ $location->longitude }}" readonly aria-label="default input example">
                                 </div>
 
                                 <div class="mb-3">
