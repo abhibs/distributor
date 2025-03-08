@@ -28,6 +28,7 @@
     <link href="{{ asset('admin/sass/semi-dark.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/sass/bordered-theme.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/sass/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
 </head>
@@ -310,6 +311,21 @@
                     break;
             }
         @endif
+    </script>
+
+
+    <script src="{{ asset('admin/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            var table = $('#example2').DataTable({
+                lengthChange: false,
+                buttons: ['copy', 'excel', 'pdf', 'print']
+            });
+
+            table.buttons().container()
+                .appendTo('#example2_wrapper .col-md-6:eq(0)');
+        });
     </script>
 
 </body>

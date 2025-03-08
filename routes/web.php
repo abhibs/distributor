@@ -40,6 +40,7 @@ Route::group(
         Route::controller(WallPosterController::class)->group(function () {
             Route::group(['middleware' => 'auth:web'], function () {
                 Route::get('/wallposter/create', 'create')->name('user-wallposter-create');
+                Route::post('/wallposter/store', 'store')->name('user-wallposter-store');
                 Route::get('/wallposter/index', 'index')->name('user-wallposter-index');
             });
         });
@@ -49,6 +50,7 @@ Route::group(
         Route::controller(PanShopController::class)->group(function () {
             Route::group(['middleware' => 'auth:web'], function () {
                 Route::get('/panshop/create', 'create')->name('user-panshop-create');
+                Route::post('/panshop/store', 'store')->name('user-panshop-store');
                 Route::get('/panshop/index',  'index')->name('user-panshop-index');
             });
         });
@@ -58,6 +60,7 @@ Route::group(
         Route::controller(ProjectorController::class)->group(function () {
             Route::group(['middleware' => 'auth:web'], function () {
                 Route::get('/projector/create', 'create')->name('user-projector-create');
+                Route::post('/projector/store', 'store')->name('user-projector-store');
                 Route::get('/projector/index', 'index')->name('user-projector-index');
             });
         });

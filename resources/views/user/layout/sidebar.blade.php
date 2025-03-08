@@ -28,10 +28,10 @@
                 </a>
                 <ul>
                     <li><a href="{{ route('user-wallposter-create') }}"><i class="material-icons-outlined"></i>Add Wall
-                            poster</a>
+                            Poster</a>
                     </li>
-                    <li><a href="{{ route('user-wallposter-index') }}"><i class="material-icons-outlined"></i>View Wall
-                            poster</a>
+                    <li><a href="{{ route('user-wallposter-index') }}"><i class="material-icons-outlined"></i>All Wall
+                            Poster</a>
                     </li>
                 </ul>
 
@@ -46,7 +46,7 @@
                     <li><a href="{{ route('user-panshop-create') }}"><i class="material-icons-outlined"></i>Add Pan
                             Shop</a>
                     </li>
-                    <li><a href="{{ route('user-panshop-index') }}"><i class="material-icons-outlined"></i>View Pan
+                    <li><a href="{{ route('user-panshop-index') }}"><i class="material-icons-outlined"></i>All Pan
                             Shop</a>
                     </li>
                 </ul>
@@ -62,7 +62,7 @@
                             Projector
                         </a>
                     </li>
-                    <li><a href="{{ route('user-projector-index') }}"><i class="material-icons-outlined"></i>View
+                    <li><a href="{{ route('user-projector-index') }}"><i class="material-icons-outlined"></i>All
                             Projector</a>
                     </li>
                 </ul>
