@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('district_id')->nullable();
             $table->unsignedBigInteger('super_stockist_id')->nullable();
             $table->string('name')->nullable();
+            $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
             $table->foreign('super_stockist_id')->references('id')->on('super_stockists')->onDelete('cascade');
             $table->timestamps();
         });
