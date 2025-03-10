@@ -37,7 +37,8 @@
         <div class="container-fluid my-5 my-lg-0">
             <div class="row">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5 col-xxl-4 mx-auto">
-                    <div class="card rounded-4 mb-0 border-top border-bottom border-start border-end border-4 border-primary border-gradient-1">
+                    <div
+                        class="card rounded-4 mb-0 border-top border-bottom border-start border-end border-4 border-primary border-gradient-1">
                         <div class="card-body p-5">
                             <div class="text-center">
                                 <img src=" {{ asset('admin/assets/images/logo1.png') }}" class="mb-4" width="145"
@@ -90,6 +91,13 @@
                                 </form>
                             </div>
 
+                            <div class="row">
+                                <div class="col">
+                                    <a href="{{ route('retailer-create') }}"
+                                        class="btn btn-grd btn-grd-deep-blue px-5 w-100">Add Retailer</a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -120,22 +128,22 @@
         });
 
 
-        @if(Session::has('message'))
-        var type = "{{ Session::get('alert-type', 'info') }}"
-        switch (type) {
-            case 'info':
-                toastr.info(" {{ Session::get('message') }} ");
-                break;
-            case 'success':
-                toastr.success(" {{ Session::get('message') }} ");
-                break;
-            case 'warning':
-                toastr.warning(" {{ Session::get('message') }} ");
-                break;
-            case 'error':
-                toastr.error(" {{ Session::get('message') }} ");
-                break;
-        }
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
         @endif
     </script>
 

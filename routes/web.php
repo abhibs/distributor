@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PanShopController;
 use App\Http\Controllers\ProjectorController;
+use App\Http\Controllers\RetailerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WallPosterController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,7 @@ Route::get('optimize', function () {
 });
 
 Route::get('', [UserController::class, 'userLogin'])->name('login');
+Route::get('/retailer/create', [RetailerController::class, 'create'])->name('retailer-create');
 
 Route::group(
     ['prefix' => 'user'],

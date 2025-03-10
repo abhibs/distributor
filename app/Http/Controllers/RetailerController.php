@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Distributor;
+use App\Models\District;
+use Illuminate\Http\Request;
+
+class RetailerController extends Controller
+{
+    public function create()
+    {
+        $districts = District::latest()->get();
+        $distributors = Distributor::latest()->get();
+        return view('user.retailer.create', compact('districts', 'distributors'));
+    }
+}
