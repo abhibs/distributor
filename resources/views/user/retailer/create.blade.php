@@ -55,6 +55,16 @@
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach
                                     </select>
+                                </div> 
+                                <div class="col-12">
+                                    <label class="form-label">Select Super Stockists</label>
+                                    <select class="form-select mb-3" name="superstockists_id"
+                                        aria-label="Default select example">
+                                        <option selected="">Select Super Stockists</option>
+                                        @foreach ($superstockists as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label">Select Distributor</label>
