@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="form-body my-4">
-                            <form class="row g-3" method="POST" action="">
+                            <form class="row g-3" method="POST" action="{{ route('retailer-store') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="col-12">
                                     <label class="form-label">Select District</label>
@@ -55,16 +55,22 @@
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach
                                     </select>
-                                </div> 
+                                    @error('district_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                                 <div class="col-12">
                                     <label class="form-label">Select Super Stockists</label>
-                                    <select class="form-select mb-3" name="superstockists_id"
+                                    <select class="form-select mb-3" name="super_stockist_id"
                                         aria-label="Default select example">
                                         <option selected="">Select Super Stockists</option>
                                         @foreach ($superstockists as $item)
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach
                                     </select>
+                                    @error('super_stockist_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label">Select Distributor</label>
@@ -75,62 +81,93 @@
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach
                                     </select>
+                                    @error('distributor_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Shop Name</label>
-                                    <input type="text" class="form-control" name="shop_name" required>
+                                    <input type="text" class="form-control" name="shop_name">
+                                    @error('shop_name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Owner Name</label>
-                                    <input type="text" class="form-control" name="owner_name" required>
+                                    <input type="text" class="form-control" name="owner_name">
+                                    @error('owner_name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Mobile No</label>
-                                    <input type="text" class="form-control" name="mobile_no" required>
+                                    <input type="text" class="form-control" name="mobile_no">
+                                    @error('mobile_no')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Alternative Mobile No</label>
-                                    <input type="text" class="form-control" name="alt_mobile_no">
+                                    <input type="text" class="form-control" name="alternate_mobile_no">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Shop Address</label>
-                                    <textarea class="form-control" name="shop_address" required></textarea>
+                                    <textarea class="form-control" name="shop_address"></textarea>
+                                    @error('shop_address')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">City</label>
-                                    <input type="text" class="form-control" name="city" required>
+                                    <input type="text" class="form-control" name="city">
+                                    @error('city')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">State</label>
-                                    <input type="text" class="form-control" name="state" required>
+                                    <input type="text" class="form-control" name="state">
+                                    @error('state')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Pin Code</label>
-                                    <input type="text" class="form-control" name="pin_code" required>
+                                    <input type="text" class="form-control" name="pin_code">
+                                    @error('pin_code')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Photo (Capture Image)</label>
-                                    <video id="camera" autoplay></video>
-                                    <button type="button" class="btn btn-secondary mt-2"
-                                        onclick="capturePhoto()">Capture</button>
-                                    <canvas id="canvas" style="display:none;"></canvas>
-                                    <input type="hidden" name="photo" id="photo">
+                                    <label class="form-label">Image</label>
+                                    <input type="file" class="form-control" name="image">
+                                    @error('image')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Latitude</label>
+                                    <input class="form-control" type="text" name="latitude" value="12.9753"
+                                        readonly aria-label="default input example">
+                                    @error('latitude')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Latitude</label>
-                                    <input type="text" class="form-control" id="latitude" name="latitude"
-                                        readonly required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Longitude</label>
-                                    <input type="text" class="form-control" id="longitude" name="longitude"
-                                        readonly required>
+                                    <label for="formFile" class="form-label">Longitude</label>
+                                    <input class="form-control" type="text" name="longitude" value="77.591"
+                                        readonly aria-label="default input example">
+                                    @error('longitude')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
 
 
                                 <div class="col-12">
                                     <div class="d-grid">
-                                        <button type="submit" class="btn btn-dark text-white">Register</button>
+                                        <button type="submit" class="btn btn-dark text-white">Add Retailer</button>
                                     </div>
                                 </div>
 
