@@ -75,6 +75,8 @@
                     <div class="order-img">
                         <img src="{{ asset('admin/assets/images/orders/01.png') }}" class="img-fluid rounded-3"
                             width="75" alt="">
+
+
                     </div>
                     <div class="order-info flex-grow-1">
                         <h5 class="mb-1 order-title">White Men Shoes</h5>
