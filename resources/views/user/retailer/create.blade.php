@@ -213,8 +213,6 @@
             const longitudeSection = document.getElementById('longitude-section');
             const submitSection = document.getElementById('submit-section');
 
-
-            // Hide all sections initially
             superStockistSection.style.display = 'none';
             distributorSection.style.display = 'none';
             shopNameSection.style.display = 'none';
@@ -230,7 +228,6 @@
             longitudeSection.style.display = 'none';
             submitSection.style.display = 'none';
 
-            // Show super stockists when a district is selected
             districtSelect.addEventListener('change', function() {
                 if (districtSelect.value) {
                     superStockistSection.style.display = 'block';
@@ -252,7 +249,6 @@
                 }
             });
 
-            // Show distributor when a super stockist is selected
             superStockistSelect.addEventListener('change', function() {
                 if (superStockistSelect.value) {
                     distributorSection.style.display = 'block';
@@ -273,7 +269,6 @@
                 }
             });
 
-            // Show form fields when a distributor is selected
             distributorSelect.addEventListener('change', function() {
                 if (distributorSelect.value) {
                     shopNameSection.style.display = 'block';
