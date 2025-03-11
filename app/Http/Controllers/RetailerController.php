@@ -20,6 +20,7 @@ class RetailerController extends Controller
     }
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'district_id' => 'required',
             'super_stockist_id' => 'required',
