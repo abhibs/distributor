@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
-
-
+use App\Http\Controllers\Admin\ZoneController;
 
 Route::get('/test', function () {
     echo "Abhiram";
@@ -23,5 +22,14 @@ Route::group(
                 });
             }
         );
+
+        Route::controller(ZoneController::class)->group(function () {
+            Route::group(['middleware' => 'auth:admin'], function () {
+                Route::get('/zone/create', 'create')->name('admin-zone-create');
+            });
+        });
     }
+
+
+
 );
