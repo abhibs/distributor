@@ -2,12 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\SuperStockistController;
 use App\Http\Controllers\Admin\ZoneController;
 
 Route::get('/test', function () {
     echo "Abhiram";
 });
+
+Route::get('super/stocklist/ajax/{zone_id}', [DistrictController::class, 'getSuperStockist']);
 
 
 Route::group(
@@ -37,6 +40,14 @@ Route::group(
                 Route::get('/super/stockist/create', 'create')->name('admin-super-stockist-create');
                 Route::post('/super/stockist/store', 'store')->name('admin-super-stockist-store');
                 Route::get('/super/stockist/index', 'index')->name('admin-super-stockist-index');
+            });
+        });
+
+
+        Route::controller(DistrictController::class)->group(function () {
+            Route::group(['middleware' => 'auth:admin'], function () {
+                Route::get('/district/create', 'create')->name('admin-district-create');
+                Route::get('/district/index', 'index')->name('admin-district-index');
             });
         });
     }

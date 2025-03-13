@@ -54,49 +54,31 @@
                                     class="material-icons-outlined">arrow_right</i>Add Super Stockist</a>
                         </li>
                         <li><a href="{{ route('admin-super-stockist-index') }}"><i
-                                    class="material-icons-outlined">arrow_right</i>View Super Stockist</a>
+                                    class="material-icons-outlined">arrow_right</i>View Super Stockists</a>
                         </li>
 
                 </li>
             </ul>
             </li>
-            {{--
-                <li class="menu-label">UI Elements</li>
-                <li>
-                    <a href="cards.html">
-                        <div class="parent-icon"><i class="material-icons-outlined">inventory_2</i>
-                        </div>
-                        <div class="menu-title">Cards</div>
-                    </a>
-                </li>
 
-                <li>
-                    <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class="material-icons-outlined">shopping_bag</i>
-                        </div>
-                        <div class="menu-title">eCommerce</div>
-                    </a>
-                    <ul>
-                        <li><a href="ecommerce-add-product.html"><i class="material-icons-outlined">arrow_right</i>Add
-                                Product</a>
-                        </li>
-                        <li><a href="ecommerce-products.html"><i
-                                    class="material-icons-outlined">arrow_right</i>Products</a>
-                        </li>
-                        <li><a href="ecommerce-customers.html"><i
-                                    class="material-icons-outlined">arrow_right</i>Customers</a>
-                        </li>
-                        <li><a href="ecommerce-customer-details.html"><i
-                                    class="material-icons-outlined">arrow_right</i>Customer Details</a>
-                        </li>
-                        <li><a href="ecommerce-orders.html"><i
-                                    class="material-icons-outlined">arrow_right</i>Orders</a>
-                        </li>
-                        <li><a href="ecommerce-order-details.html"><i
-                                    class="material-icons-outlined">arrow_right</i>Order Details</a>
-                        </li>
-                    </ul>
-                </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class="material-icons-outlined">shopping_bag</i>
+                    </div>
+                    <div class="menu-title">District </div>
+                </a>
+                <ul>
+                    <li><a href="{{ route('admin-district-create') }}"><i
+                                class="material-icons-outlined">arrow_right</i>Add
+                            District</a>
+                    </li>
+                    <li><a href="{{ route('admin-district-index') }}"><i
+                                class="material-icons-outlined">arrow_right</i>All Districts</a>
+                    </li>
+                </ul>
+            </li>
+            
+            {{--
                 <li>
                     <a class="has-arrow" href="javascript:;">
                         <div class="parent-icon"><i class="material-icons-outlined">card_giftcard</i>
