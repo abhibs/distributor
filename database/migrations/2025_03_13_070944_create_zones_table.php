@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('super_stockists', function (Blueprint $table) {
+        Schema::create('zones', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('zone_id')->nullable();
             $table->string('name')->nullable();
-            $table->foreign('zone_id')->references('id')->on('zones')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('super_stockists');
+        Schema::dropIfExists('zones');
     }
 };

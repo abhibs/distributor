@@ -25,6 +25,7 @@
     <link href="{{ asset('admin/sass/dark-theme.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/sass/blue-theme.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/sass/responsive.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
 </head>
 
@@ -44,17 +45,19 @@
                             </div>
 
                             <div class="form-body">
-                                <form class="row g-3">
+                                <form class="row g-3" method="POST" action="{{ route('admin-login-post') }}">
+                                    @csrf
                                     <div class="col-12">
                                         <label for="inputEmailAddress" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="inputEmailAddress"
-                                            placeholder="jhon@example.com">
+                                        <input type="email" name="email" class="form-control" id="inputEmailAddress"
+                                            placeholder="Enter Admin Email">
                                     </div>
                                     <div class="col-12">
                                         <label for="inputChoosePassword" class="form-label">Password</label>
                                         <div class="input-group" id="show_hide_password">
                                             <input type="password" class="form-control border-end-0"
-                                                id="inputChoosePassword" value="12345678" placeholder="Enter Password">
+                                                id="inputChoosePassword" name="password" value="12345678"
+                                                placeholder="Enter Password">
                                             <a href="javascript:;" class="input-group-text bg-transparent"><i
                                                     class="bi bi-eye-slash-fill"></i></a>
                                         </div>
@@ -77,6 +80,7 @@
 
     <!--plugins-->
     <script src="{{ asset('admin/assets/js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -93,6 +97,24 @@
                 }
             });
         });
+
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
     </script>
 
 </body>
