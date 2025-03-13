@@ -37,7 +37,8 @@
                         <li><a href="{{ route('admin-zone-create') }}"><i
                                     class="material-icons-outlined">arrow_right</i>Add Zone</a>
                         </li>
-                        <li><a href="widgets-static.html"><i class="material-icons-outlined">arrow_right</i>View
+                        <li><a href="{{ route('admin-zone-index') }}"><i
+                                    class="material-icons-outlined">arrow_right</i>View
                                 Zone</a>
                         </li>
                     </ul>

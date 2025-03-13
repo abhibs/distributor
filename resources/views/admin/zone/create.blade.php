@@ -24,7 +24,7 @@
                 <hr>
                 <div class="card">
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="{{ route('admin-zone-store') }}" method="post">
                             @csrf
                             <div class="mb-3">
                                 <label for="formName" class="form-label">Zone Name</label>

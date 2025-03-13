@@ -26,6 +26,8 @@ Route::group(
         Route::controller(ZoneController::class)->group(function () {
             Route::group(['middleware' => 'auth:admin'], function () {
                 Route::get('/zone/create', 'create')->name('admin-zone-create');
+                Route::post('/zone/store', 'store')->name('admin-zone-store');
+                Route::get('/zone/index', 'index')->name('admin-zone-index');
             });
         });
     }
