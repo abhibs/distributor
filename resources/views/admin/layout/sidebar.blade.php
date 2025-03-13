@@ -53,8 +53,8 @@
                         <li><a href="{{ route('admin-super-stockist-create') }}"><i
                                     class="material-icons-outlined">arrow_right</i>Add Super Stockist</a>
                         </li>
-                        <li><a href="app-emailread.html"><i class="material-icons-outlined">arrow_right</i>Email
-                                Read</a>
+                        <li><a href="{{ route('admin-super-stockist-index') }}"><i
+                                    class="material-icons-outlined">arrow_right</i>View Super Stockist</a>
                         </li>
 
                 </li>

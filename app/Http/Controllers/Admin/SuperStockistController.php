@@ -43,6 +43,7 @@ class SuperStockistController extends Controller
 
     public function index()
     {
-        return view('admin.superstockist.index');
+        $datas = SuperStockist::latest()->get();
+        return view('admin.superstockist.index', compact('datas'));
     }
 }
