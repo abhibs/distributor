@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\SuperStockistController;
 use App\Http\Controllers\Admin\ZoneController;
 
 Route::get('/test', function () {
@@ -28,6 +29,12 @@ Route::group(
                 Route::get('/zone/create', 'create')->name('admin-zone-create');
                 Route::post('/zone/store', 'store')->name('admin-zone-store');
                 Route::get('/zone/index', 'index')->name('admin-zone-index');
+            });
+        });
+
+        Route::controller(SuperStockistController::class)->group(function () {
+            Route::group(['middleware' => 'auth:admin'], function () {
+                Route::get('/super/stockist/create', 'create')->name('admin-super-stockist-create');
             });
         });
     }

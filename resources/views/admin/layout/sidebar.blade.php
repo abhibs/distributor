@@ -43,30 +43,24 @@
                         </li>
                     </ul>
                 </li>
-                {{-- <li>
+                <li>
                     <a class="has-arrow" href="javascript:;">
                         <div class="parent-icon"><i class="material-icons-outlined">apps</i>
                         </div>
-                        <div class="menu-title">Apps</div>
+                        <div class="menu-title">Super Stockist</div>
                     </a>
                     <ul>
-                        <li><a href="app-emailbox.html"><i class="material-icons-outlined">arrow_right</i>Email
-                                Box</a>
+                        <li><a href="{{ route('admin-super-stockist-create') }}"><i
+                                    class="material-icons-outlined">arrow_right</i>Add Super Stockist</a>
                         </li>
                         <li><a href="app-emailread.html"><i class="material-icons-outlined">arrow_right</i>Email
                                 Read</a>
                         </li>
-                        <li><a href="app-chat-box.html"><i class="material-icons-outlined">arrow_right</i>Chat</a>
-                        </li>
-                        <li><a href="app-fullcalender.html"><i
-                                    class="material-icons-outlined">arrow_right</i>Calendar</a>
-                        </li>
-                        <li><a href="app-to-do.html"><i class="material-icons-outlined">arrow_right</i>To do</a>
-                        </li>
-                        <li><a href="app-invoice.html"><i class="material-icons-outlined">arrow_right</i>Invoice</a>
-                        </li>
-                    </ul>
+
                 </li>
+            </ul>
+            </li>
+            {{--
                 <li class="menu-label">UI Elements</li>
                 <li>
                     <a href="cards.html">
