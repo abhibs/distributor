@@ -35,6 +35,8 @@ Route::group(
         Route::controller(SuperStockistController::class)->group(function () {
             Route::group(['middleware' => 'auth:admin'], function () {
                 Route::get('/super/stockist/create', 'create')->name('admin-super-stockist-create');
+                Route::post('/super/stockist/store', 'store')->name('admin-super-stockist-store');
+                Route::get('/super/stockist/index', 'index')->name('admin-super-stockist-index');
             });
         });
     }

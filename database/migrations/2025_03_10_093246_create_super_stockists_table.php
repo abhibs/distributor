@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('super_stockists', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('district_id')->nullable();
+            $table->unsignedBigInteger('zone_id')->nullable();
             $table->string('name')->nullable();
-            $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
+            $table->foreign('zone_id')->references('id')->on('zones')->onDelete('cascade');
             $table->timestamps();
         });
     }
