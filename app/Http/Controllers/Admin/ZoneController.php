@@ -36,6 +36,7 @@ class ZoneController extends Controller
 
     public function index()
     {
-        return view('admin.zone.index');
+        $datas = Zone::latest()->get();
+        return view('admin.zone.index', compact('datas'));
     }
 }
