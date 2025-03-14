@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\DistributorController;
 use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\SuperStockistController;
 use App\Http\Controllers\Admin\ZoneController;
@@ -49,6 +50,15 @@ Route::group(
                 Route::get('/district/create', 'create')->name('admin-district-create');
                 Route::get('/district/index', 'index')->name('admin-district-index');
                 Route::post('/district/store', 'store')->name('admin-district-store');
+            });
+        });
+
+
+        Route::controller(DistributorController::class)->group(function () {
+            Route::group(['middleware' => 'auth:admin'], function () {
+                Route::get('/distributor/create', 'create')->name('admin-distributor-create');
+                // Route::get('/district/index', 'index')->name('admin-district-index');
+                // Route::post('/district/store', 'store')->name('admin-district-store');
             });
         });
     }
