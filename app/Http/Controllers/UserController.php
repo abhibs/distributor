@@ -48,27 +48,70 @@ class UserController extends Controller
         return view('user.login');
     }
 
+    // public function userLoginPost(Request $request)
+    // {
+    //     // dd($request->all());
+    //     $credentials = $request->only('code', 'password');
+    //     $credentials['password'] = $request->password;
+    //     // dd($credentials);
+    //     if (Auth::guard('web')->attempt($credentials)) {
+    //         // dd('hi');
+    //         $notification1 = array(
+    //             'message' => 'User Login Successfully',
+    //             'alert-type' => 'success'
+    //         );
+    //         return redirect()->route('user-dashboard')->with($notification1);
+    //     } else {
+    //         $notification2 = array(
+    //             'message' => 'Invalid Credentials',
+    //             'alert-type' => 'error'
+    //         );
+    //         return back()->with($notification2);
+    //     }
+    // }
+
+
+
     public function userLoginPost(Request $request)
     {
-        // dd($request->all());
         $credentials = $request->only('code', 'password');
-        $credentials['password'] = $request->password;
-        // dd($credentials);
+
+        // Retrieve the user by code (assuming 'code' is a unique identifier)
+        $user = \App\Models\User::where('code', $credentials['code'])->first();
+
+        if (!$user) {
+            return back()->with([
+                'message' => 'User not found',
+                'alert-type' => 'error'
+            ]);
+        }
+
+        if ($user->status == 'Pending') {
+            return back()->with([
+                'message' => 'Your Account is Not Approved Yet',
+                'alert-type' => 'error'
+            ]);
+        } elseif ($user->status == 'Rejected') {
+            return back()->with([
+                'message' => 'Your Account is Rejected',
+                'alert-type' => 'error'
+            ]);
+        }
+
+        // Attempt login only if status is "Approved"
         if (Auth::guard('web')->attempt($credentials)) {
-            // dd('hi');
-            $notification1 = array(
+            return redirect()->route('user-dashboard')->with([
                 'message' => 'User Login Successfully',
                 'alert-type' => 'success'
-            );
-            return redirect()->route('user-dashboard')->with($notification1);
+            ]);
         } else {
-            $notification2 = array(
+            return back()->with([
                 'message' => 'Invalid Credentials',
                 'alert-type' => 'error'
-            );
-            return back()->with($notification2);
+            ]);
         }
     }
+
 
 
     public function userDashboard()
