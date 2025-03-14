@@ -14,8 +14,7 @@
                 </nav>
             </div>
             <div class="ms-auto">
-                <a href="{{ route('admin-district-create') }}" type="button" class="btn btn-primary">Add Super
-                    Stockist</a>
+                <a href="{{ route('admin-district-create') }}" type="button" class="btn btn-primary">Add District</a>
             </div>
         </div>
         <!--end breadcrumb-->

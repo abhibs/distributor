@@ -56,6 +56,7 @@ class DistributorController extends Controller
 
     public function index()
     {
-        return view('admin.distributor.index');
+        $datas = Distributor::latest()->get();
+        return view('admin.distributor.index', compact('datas'));
     }
 }
