@@ -68,6 +68,8 @@ Route::group(
         Route::controller(UserController::class)->group(function () {
             Route::group(['middleware' => 'auth:admin'], function () {
                 Route::get('/user/index', 'index')->name('admin-user-index');
+                Route::get('/user/approve', 'approveUser')->name('admin-user-approve');
+                Route::get('/user/reject', 'rejectExpense')->name('admin-user-reject');
             });
         });
     }

@@ -13,4 +13,17 @@ class UserController extends Controller
         $datas = User::latest()->get();
         return view('admin.user.index', compact('datas'));
     }
+
+
+    public function approveUser()
+    {
+        $datas = User::where('status', 'Approved')->latest()->get();
+        return view('admin.user.approve', compact('datas'));
+    }
+
+    public function rejectExpense()
+    {
+        $datas = User::where('status', 'Rejected')->latest()->get();
+        return view('admin.user.reject', compact('datas'));
+    }
 }

@@ -105,16 +105,20 @@
                     </div>
                     <div class="menu-title">Registered Users</div>
                 </a>
-                {{-- <ul>
-                    <li><a href="icons-line-icons.html"><i class="material-icons-outlined">arrow_right</i>Line
-                            Icons</a>
-                    </li>
-                    <li><a href="icons-boxicons.html"><i class="material-icons-outlined">arrow_right</i>Boxicons</a>
-                    </li>
-                    <li><a href="icons-feather-icons.html"><i class="material-icons-outlined">arrow_right</i>Feather
-                            Icons</a>
-                    </li>
-                </ul> --}}
+            </li>
+            <li>
+                <a href="{{ route('admin-user-approve') }}">
+                    <div class="parent-icon"><i class="material-icons-outlined">view_agenda</i>
+                    </div>
+                    <div class="menu-title">Approved Users</div>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin-user-reject') }}">
+                    <div class="parent-icon"><i class="material-icons-outlined">view_agenda</i>
+                    </div>
+                    <div class="menu-title">Rejected Users</div>
+                </a>
             </li>
             {{--
 
