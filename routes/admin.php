@@ -70,6 +70,8 @@ Route::group(
                 Route::get('/user/index', 'index')->name('admin-user-index');
                 Route::get('/user/approve', 'approveUser')->name('admin-user-approve');
                 Route::get('/user/reject', 'rejectExpense')->name('admin-user-reject');
+                Route::get('user/pending/approve/{id}', 'pendingToApproveUser')->name('admin-user-pending-approve');
+                Route::get('user/pending/reject/{id}', 'pendingToRejectUser')->name('admin-user-pending-reject');
             });
         });
     }

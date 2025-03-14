@@ -50,8 +50,10 @@
                                             alt=""></td>
                                     <td><span class="badge bg-grd-primary">{{ $item->status }}</span></td>
                                     <td>
-                                        <a href="" class="btn btn-grd btn-grd-primary" id="confirm">Approve</a>
-                                        <a href="" class="btn btn-grd btn-grd-danger" id="processing">Reject</a>
+                                        <a href="{{ route('admin-user-pending-approve', $item->id) }}"
+                                            class="btn btn-grd btn-grd-primary" id="confirm">Approve</a>
+                                        <a href="{{ route('admin-user-pending-reject', $item->id) }}"
+                                            class="btn btn-grd btn-grd-danger" id="processing">Reject</a>
                                     </td>
                                 </tr>
                             @endforeach
