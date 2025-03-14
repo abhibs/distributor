@@ -326,6 +326,11 @@
                 .appendTo('#example2_wrapper .col-md-6:eq(0)');
         });
     </script>
+    <!--Datatable-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="{{ asset('admin/assets/js/code.js') }}"></script>
+
 </body>
 
 </html>

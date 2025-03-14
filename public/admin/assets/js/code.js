@@ -1,0 +1,92 @@
+$(function () {
+    $(document).on('click', '#delete', function (e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Delete This Data?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+
+
+    });
+
+});
+
+
+$(function(){
+    $(document).on('click','#confirm',function(e){
+        e.preventDefault();
+        var link = $(this).attr("href");
+
+
+                  Swal.fire({
+                    title: 'Are you sure to Approve?',
+                    text: "Once Approve, You will not be able to pending again?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, Approve!'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.href = link
+                      Swal.fire(
+                        'Confirm!',
+                        'Confirm Change',
+                        'success'
+                      )
+                    }
+                  })
+
+
+    });
+
+  });
+
+
+
+
+
+    $(function(){
+    $(document).on('click','#processing',function(e){
+        e.preventDefault();
+        var link = $(this).attr("href");
+                  Swal.fire({
+                    title: 'Are you sure to Reject?',
+                    text: "Once Reject, You will not be able to pending again?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, Reject!'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.href = link
+                      Swal.fire(
+                        'Reject!',
+                        'Reject Change',
+                        'success'
+                      )
+                    }
+                  })
+
+
+    });
+
+  });
