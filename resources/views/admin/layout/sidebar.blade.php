@@ -95,28 +95,29 @@
                     </li>
                 </ul>
             </li>
+
+
+            <li class="menu-label">Users List</li>
+
+            <li>
+                <a href="{{ route('admin-user-index') }}">
+                    <div class="parent-icon"><i class="material-icons-outlined">view_agenda</i>
+                    </div>
+                    <div class="menu-title">Registered Users</div>
+                </a>
+                {{-- <ul>
+                    <li><a href="icons-line-icons.html"><i class="material-icons-outlined">arrow_right</i>Line
+                            Icons</a>
+                    </li>
+                    <li><a href="icons-boxicons.html"><i class="material-icons-outlined">arrow_right</i>Boxicons</a>
+                    </li>
+                    <li><a href="icons-feather-icons.html"><i class="material-icons-outlined">arrow_right</i>Feather
+                            Icons</a>
+                    </li>
+                </ul> --}}
+            </li>
             {{--
 
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="material-icons-outlined">view_agenda</i>
-                        </div>
-                        <div class="menu-title">Icons</div>
-                    </a>
-                    <ul>
-                        <li><a href="icons-line-icons.html"><i class="material-icons-outlined">arrow_right</i>Line
-                                Icons</a>
-                        </li>
-                        <li><a href="icons-boxicons.html"><i
-                                    class="material-icons-outlined">arrow_right</i>Boxicons</a>
-                        </li>
-                        <li><a href="icons-feather-icons.html"><i
-                                    class="material-icons-outlined">arrow_right</i>Feather
-                                Icons</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-label">Forms & Tables</li>
                 <li>
                     <a class="has-arrow" href="javascript:;">
                         <div class="parent-icon"><i class="material-icons-outlined">toc</i>

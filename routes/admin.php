@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DistributorController;
 use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\SuperStockistController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ZoneController;
 
 Route::get('/test', function () {
@@ -60,6 +61,13 @@ Route::group(
                 Route::get('/distributor/create', 'create')->name('admin-distributor-create');
                 Route::post('/distributor/store', 'store')->name('admin-distributor-store');
                 Route::get('/distributor/index', 'index')->name('admin-distributor-index');
+            });
+        });
+
+
+        Route::controller(UserController::class)->group(function () {
+            Route::group(['middleware' => 'auth:admin'], function () {
+                Route::get('/user/index', 'index')->name('admin-user-index');
             });
         });
     }
