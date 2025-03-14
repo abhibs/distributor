@@ -52,6 +52,7 @@ class DistrictController extends Controller
 
     public function index()
     {
-        return view('admin.district.index');
+        $datas = District::latest()->get();
+        return view('admin.district.index', compact('datas'));
     }
 }
