@@ -12,6 +12,7 @@ Route::get('/test', function () {
 });
 
 Route::get('super/stocklist/ajax/{zone_id}', [DistrictController::class, 'getSuperStockist']);
+Route::get('district/ajax/{super_stockist_id}', [DistributorController::class, 'getDistrictlist']);
 
 
 Route::group(
