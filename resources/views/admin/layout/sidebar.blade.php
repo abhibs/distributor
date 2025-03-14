@@ -89,7 +89,8 @@
                                 class="material-icons-outlined">arrow_right</i>Add
                             Distributor</a>
                     </li>
-                    <li><a href="component-accordions.html"><i class="material-icons-outlined">arrow_right</i>View
+                    <li><a href="{{ route('admin-distributor-index') }}"><i
+                                class="material-icons-outlined">arrow_right</i>View
                             Distributors</a>
                     </li>
                 </ul>

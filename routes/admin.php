@@ -58,8 +58,8 @@ Route::group(
         Route::controller(DistributorController::class)->group(function () {
             Route::group(['middleware' => 'auth:admin'], function () {
                 Route::get('/distributor/create', 'create')->name('admin-distributor-create');
-                // Route::get('/district/index', 'index')->name('admin-district-index');
-                // Route::post('/district/store', 'store')->name('admin-district-store');
+                Route::post('/distributor/store', 'store')->name('admin-distributor-store');
+                Route::get('/distributor/index', 'index')->name('admin-distributor-index');
             });
         });
     }
