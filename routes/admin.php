@@ -48,6 +48,7 @@ Route::group(
             Route::group(['middleware' => 'auth:admin'], function () {
                 Route::get('/district/create', 'create')->name('admin-district-create');
                 Route::get('/district/index', 'index')->name('admin-district-index');
+                Route::post('/district/store', 'store')->name('admin-district-store');
             });
         });
     }

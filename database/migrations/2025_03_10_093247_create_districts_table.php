@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('distributors', function (Blueprint $table) {
+        Schema::create('districts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('district_id')->nullable();
+            $table->unsignedBigInteger('zone_id')->nullable();
             $table->unsignedBigInteger('super_stockist_id')->nullable();
             $table->string('name')->nullable();
-            $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
+            $table->foreign('zone_id')->references('id')->on('zones')->onDelete('cascade');
             $table->foreign('super_stockist_id')->references('id')->on('super_stockists')->onDelete('cascade');
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('distributors');
+        Schema::dropIfExists('districts');
     }
 };

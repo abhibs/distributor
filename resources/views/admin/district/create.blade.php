@@ -26,7 +26,7 @@
                 <hr>
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('admin-super-stockist-store') }}" method="post">
+                        <form action="{{ route('admin-district-store') }}" method="post">
                             @csrf
                             <div class="col-12" id="district-section">
                                 <label class="form-label">Select Zone</label>
