@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\RetailerController;
 use App\Http\Controllers\Admin\SuperStockistController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\WallPosterController;
 use App\Http\Controllers\Admin\ZoneController;
 
 Route::get('/test', function () {
@@ -76,6 +77,13 @@ Route::group(
         Route::controller(RetailerController::class)->group(function () {
             Route::group(['middleware' => 'auth:admin'], function () {
                 Route::get('/retailer/index', 'index')->name('admin-retailer-index');
+            });
+        });
+
+
+        Route::controller(WallPosterController::class)->group(function () {
+            Route::group(['middleware' => 'auth:admin'], function () {
+                Route::get('/wall/poster/index', 'index')->name('admin-wall-poster-index');
             });
         });
     }

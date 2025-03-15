@@ -132,22 +132,21 @@
                 </a>
 
             </li>
+
+
+            <li class="menu-label">WallPoster</li>
+
+
+            <li>
+                <a href="{{ route('admin-wall-poster-index') }}">
+                    <div class="parent-icon"><i class="material-icons-outlined">api</i>
+                    </div>
+                    <div class="menu-title">WallPosters Lists</div>
+                </a>
+            </li>
+
             {{--
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="material-icons-outlined">api</i>
-                        </div>
-                        <div class="menu-title">Tables</div>
-                    </a>
-                    <ul>
-                        <li><a href="table-basic-table.html"><i class="material-icons-outlined">arrow_right</i>Basic
-                                Table</a>
-                        </li>
-                        <li><a href="table-datatable.html"><i class="material-icons-outlined">arrow_right</i>Data
-                                Table</a>
-                        </li>
-                    </ul>
-                </li>
+
                 <li class="menu-label">Pages</li>
                 <li>
                     <a class="has-arrow" href="javascript:;">
