@@ -59,7 +59,10 @@
                                     <td>{{ $item->city }}</td>
                                     <td>{{ $item->state }}</td>
                                     <td>{{ $item->pin_code }}</td>
-                                    <td><img src="{{ $item->image }}" alt=""></td>
+                                    <td><a href="{{ asset($item->image) }}" target="_blank"><img
+                                                src="{{ asset($item->image) }}" width="70px" height="40px"
+                                                alt=""></a>
+                                    </td>
                                     <td>{{ $item->latitude }}</td>
                                     <td>{{ $item->longitude }}</td>
                                 </tr>
@@ -67,6 +70,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
+                                <th>SL No</th>
                                 <th>Zone Name</th>
                                 <th>Super Stockist Name</th>
                                 <th>District Name</th>
@@ -82,6 +86,7 @@
                                 <th>Image</th>
                                 <th>Longitude</th>
                                 <th>Latitude</th>
+
                             </tr>
                         </tfoot>
                     </table>

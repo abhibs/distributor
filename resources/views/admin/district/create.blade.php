@@ -79,24 +79,28 @@
         $(document).ready(function() {
             $('select[name="zone_id"]').on('change', function() {
                 var zone_id = $(this).val();
-                // alert(category_id);
+
                 if (zone_id) {
                     $.ajax({
                         url: "{{ url('super/stocklist/ajax') }}/" + zone_id,
                         type: "GET",
                         dataType: "json",
                         success: function(data) {
-                            $('select[name="super_stockist_id"]').html('');
-                            var d = $('select[name="super_stockist_id"]').empty();
+                            var superStockistDropdown = $('select[name="super_stockist_id"]');
+                            superStockistDropdown.html('');
+
+                            // Add the default "Please Select Super Stockist" option
+                            superStockistDropdown.append(
+                                '<option value="">Please Select Super Stockist</option>');
+
                             $.each(data, function(key, value) {
-                                $('select[name="super_stockist_id"]').append(
-                                    '<option value="' + value.id + '"> ' + value
-                                    .name + '</option>');
+                                superStockistDropdown.append(
+                                    '<option value="' + value.id + '">' + value
+                                    .name + '</option>'
+                                );
                             });
                         },
                     });
-                } else {
-                    alert('danger');
                 }
             });
         });

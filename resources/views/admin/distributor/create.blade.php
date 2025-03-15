@@ -92,50 +92,62 @@
         $(document).ready(function() {
             $('select[name="zone_id"]').on('change', function() {
                 var zone_id = $(this).val();
-                // alert(category_id);
+
                 if (zone_id) {
                     $.ajax({
                         url: "{{ url('super/stocklist/ajax') }}/" + zone_id,
                         type: "GET",
                         dataType: "json",
                         success: function(data) {
-                            $('select[name="super_stockist_id"]').html('');
-                            var d = $('select[name="super_stockist_id"]').empty();
+                            var superStockistDropdown = $('select[name="super_stockist_id"]');
+                            superStockistDropdown.html('');
+
+                            // Add the default "Please Select Super Stockist" option
+                            superStockistDropdown.append(
+                                '<option value="">Please Select Super Stockist</option>');
+
                             $.each(data, function(key, value) {
-                                $('select[name="super_stockist_id"]').append(
-                                    '<option value="' + value.id + '"> ' + value
-                                    .name + '</option>');
+                                superStockistDropdown.append(
+                                    '<option value="' + value.id + '">' + value
+                                    .name + '</option>'
+                                );
                             });
                         },
                     });
-                } else {
-                    alert('danger');
                 }
             });
         });
+    </script>
 
 
+    <script>
         $(document).ready(function() {
-            $('select[name="super_stockist_id"]').on('change', function() {
-                var super_stockist_id = $(this).val();
-                // alert(category_id);
-                if (super_stockist_id) {
+            $('select[name="super_stockist_id"], select[name="zone_id"]').on('change', function() {
+                var super_stockist_id = $('select[name="super_stockist_id"]').val();
+                var zone_id = $('select[name="zone_id"]').val();
+
+                if (super_stockist_id && zone_id) {
                     $.ajax({
-                        url: "{{ url('district/ajax') }}/" + super_stockist_id,
+                        url: "{{ url('district/ajax') }}/" + super_stockist_id + "/" +
+                            zone_id, // Pass both parameters
                         type: "GET",
                         dataType: "json",
                         success: function(data) {
-                            $('select[name="district_id"]').html('');
-                            var d = $('select[name="district_id"]').empty();
+                            var districtDropdown = $('select[name="district_id"]');
+                            districtDropdown.html('');
+
+                            // Add the default "Please Select District" option
+                            districtDropdown.append(
+                                '<option value="">Please Select District</option>');
+
                             $.each(data, function(key, value) {
-                                $('select[name="district_id"]').append(
-                                    '<option value="' + value.id + '"> ' + value
-                                    .name + '</option>');
+                                districtDropdown.append(
+                                    '<option value="' + value.id + '">' + value
+                                    .name + '</option>'
+                                );
                             });
                         },
                     });
-                } else {
-                    alert('danger');
                 }
             });
         });
