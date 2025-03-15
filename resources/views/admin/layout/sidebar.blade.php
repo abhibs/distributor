@@ -145,57 +145,18 @@
                 </a>
             </li>
 
+
+            <li class="menu-label">Pan Shop</li>
+            <li>
+                <a href="{{ route('admin-pan-shop-index') }}">
+                    <div class="parent-icon"><i class="material-icons-outlined">lock</i>
+                    </div>
+                    <div class="menu-title">Pan Shop List</div>
+                </a>
+            </li>
+
             {{--
 
-                <li class="menu-label">Pages</li>
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="material-icons-outlined">lock</i>
-                        </div>
-                        <div class="menu-title">Authentication</div>
-                    </a>
-                    <ul>
-                        <li><a class="has-arrow" href="javascript:;"><i
-                                    class="material-icons-outlined">arrow_right</i>Basic</a>
-                            <ul>
-                                <li><a href="auth-basic-login.html" target="_blank"><i
-                                            class="material-icons-outlined">arrow_right</i>Login</a></li>
-                                <li><a href="auth-basic-register.html" target="_blank"><i
-                                            class="material-icons-outlined">arrow_right</i>Register</a></li>
-                                <li><a href="auth-basic-forgot-password.html" target="_blank"><i
-                                            class="material-icons-outlined">arrow_right</i>Forgot Password</a></li>
-                                <li><a href="auth-basic-reset-password.html" target="_blank"><i
-                                            class="material-icons-outlined">arrow_right</i>Reset Password</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="has-arrow" href="javascript:;"><i
-                                    class="material-icons-outlined">arrow_right</i>Cover</a>
-                            <ul>
-                                <li><a href="auth-cover-login.html" target="_blank"><i
-                                            class="material-icons-outlined">arrow_right</i>Login</a></li>
-                                <li><a href="auth-cover-register.html" target="_blank"><i
-                                            class="material-icons-outlined">arrow_right</i>Register</a></li>
-                                <li><a href="auth-cover-forgot-password.html" target="_blank"><i
-                                            class="material-icons-outlined">arrow_right</i>Forgot Password</a></li>
-                                <li><a href="auth-cover-reset-password.html" target="_blank"><i
-                                            class="material-icons-outlined">arrow_right</i>Reset Password</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="has-arrow" href="javascript:;"><i
-                                    class="material-icons-outlined">arrow_right</i>Boxed</a>
-                            <ul>
-                                <li><a href="auth-boxed-login.html" target="_blank"><i
-                                            class="material-icons-outlined">arrow_right</i>Login</a></li>
-                                <li><a href="auth-boxed-register.html" target="_blank"><i
-                                            class="material-icons-outlined">arrow_right</i>Register</a></li>
-                                <li><a href="auth-boxed-forgot-password.html" target="_blank"><i
-                                            class="material-icons-outlined">arrow_right</i>Forgot Password</a></li>
-                                <li><a href="auth-boxed-reset-password.html" target="_blank"><i
-                                            class="material-icons-outlined">arrow_right</i>Reset Password</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
                 <li>
                     <a href="user-profile.html">
                         <div class="parent-icon"><i class="material-icons-outlined">person</i>

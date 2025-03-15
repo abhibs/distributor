@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DistributorController;
 use App\Http\Controllers\Admin\DistrictController;
+use App\Http\Controllers\Admin\PanShopController;
 use App\Http\Controllers\Admin\RetailerController;
 use App\Http\Controllers\Admin\SuperStockistController;
 use App\Http\Controllers\Admin\UserController;
@@ -84,6 +85,13 @@ Route::group(
         Route::controller(WallPosterController::class)->group(function () {
             Route::group(['middleware' => 'auth:admin'], function () {
                 Route::get('/wall/poster/index', 'index')->name('admin-wall-poster-index');
+            });
+        });
+
+
+        Route::controller(PanShopController::class)->group(function () {
+            Route::group(['middleware' => 'auth:admin'], function () {
+                Route::get('/pan/shop/index', 'index')->name('admin-pan-shop-index');
             });
         });
     }
