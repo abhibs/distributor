@@ -155,15 +155,17 @@
                 </a>
             </li>
 
+            <li class="menu-label">Projector</li>
+
+            <li>
+                <a href="{{ route('admin-projector-index') }}">
+                    <div class="parent-icon"><i class="material-icons-outlined">person</i>
+                    </div>
+                    <div class="menu-title">Projector List</div>
+                </a>
+            </li>
             {{--
 
-                <li>
-                    <a href="user-profile.html">
-                        <div class="parent-icon"><i class="material-icons-outlined">person</i>
-                        </div>
-                        <div class="menu-title">User Profile</div>
-                    </a>
-                </li>
                 <li>
                     <a href="timeline.html">
                         <div class="parent-icon"><i class="material-icons-outlined">join_right</i>

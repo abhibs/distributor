@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DistributorController;
 use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\PanShopController;
+use App\Http\Controllers\Admin\ProjectorController;
 use App\Http\Controllers\Admin\RetailerController;
 use App\Http\Controllers\Admin\SuperStockistController;
 use App\Http\Controllers\Admin\UserController;
@@ -92,6 +93,12 @@ Route::group(
         Route::controller(PanShopController::class)->group(function () {
             Route::group(['middleware' => 'auth:admin'], function () {
                 Route::get('/pan/shop/index', 'index')->name('admin-pan-shop-index');
+            });
+        });
+
+        Route::controller(ProjectorController::class)->group(function () {
+            Route::group(['middleware' => 'auth:admin'], function () {
+                Route::get('/projector/index', 'index')->name('admin-projector-index');
             });
         });
     }
