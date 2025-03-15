@@ -15,16 +15,13 @@ class RetailerController extends Controller
         return view('user.retailer.create', compact('zones'));
     }
 
-
-
-
-
     public function store(Request $request)
     {
         // dd($request->all());
         $request->validate([
-            'district_id' => 'required',
+            'zone_id' => 'required',
             'super_stockist_id' => 'required',
+            'district_id' => 'required',
             'distributor_id' => 'required',
             'shop_name' => 'required',
             'owner_name' => 'required',
@@ -36,10 +33,10 @@ class RetailerController extends Controller
             'image' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
-
         ], [
-            'district_id.required' => 'Please Select District Name',
+            'zone_id.required' => 'Please Select Zone Name ',
             'super_stockist_id.required' => 'Please Select Super Stockist Name ',
+            'district_id.required' => 'Please Select District Name',
             'distributor_id.required' => 'Please Select Distributor Name',
             'shop_name.required' => 'Shop Name Required',
             'owner_name.required' => 'Owner Name Required',
@@ -64,8 +61,9 @@ class RetailerController extends Controller
 
 
         $retailer = new Retailer();
-        $retailer->district_id = $request->district_id;
+        $retailer->zone_id = $request->zone_id;
         $retailer->super_stockist_id = $request->super_stockist_id;
+        $retailer->district_id = $request->district_id;
         $retailer->distributor_id = $request->distributor_id;
         $retailer->shop_name = $request->shop_name;
         $retailer->owner_name = $request->owner_name;
