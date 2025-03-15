@@ -22,7 +22,7 @@
 
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class="material-icons-outlined">home</i>
+                    <div class="parent-icon"><i class="material-icons-outlined">widgets</i>
                     </div>
                     <div class="menu-title">Wall Poster</div>
                 </a>
@@ -38,7 +38,7 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class="material-icons-outlined">widgets</i>
+                    <div class="parent-icon"><i class="material-icons-outlined">apps</i>
                     </div>
                     <div class="menu-title">Pan Shop</div>
                 </a>
@@ -53,7 +53,7 @@
             </li>
             <li>
                 <a class="has-arrow" href="javascript:;">
-                    <div class="parent-icon"><i class="material-icons-outlined">apps</i>
+                    <div class="parent-icon"><i class="material-icons-outlined">shopping_bag</i>
                     </div>
                     <div class="menu-title">Projector</div>
                 </a>

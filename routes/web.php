@@ -43,6 +43,7 @@ Route::group(
             Route::group(['middleware' => 'auth:web'], function () {
                 Route::get('/dashboard', 'userDashboard')->name('user-dashboard');
                 Route::get('/logout', 'userLogout')->name('user-logout');
+                Route::get('/change/password', 'userChangePassword')->name('user-change-passord');
             });
         });
 

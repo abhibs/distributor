@@ -131,4 +131,9 @@ class UserController extends Controller
         );
         return redirect()->route('login')->with($notification);
     }
+
+    public function userChangePassword()
+    {
+        return view('user.change_password');
+    }
 }
