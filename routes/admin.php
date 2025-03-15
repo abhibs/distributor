@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DistributorController;
 use App\Http\Controllers\Admin\DistrictController;
+use App\Http\Controllers\Admin\RetailerController;
 use App\Http\Controllers\Admin\SuperStockistController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ZoneController;
@@ -69,6 +70,12 @@ Route::group(
                 Route::get('/user/reject', 'rejectExpense')->name('admin-user-reject');
                 Route::get('user/pending/approve/{id}', 'pendingToApproveUser')->name('admin-user-pending-approve');
                 Route::get('user/pending/reject/{id}', 'pendingToRejectUser')->name('admin-user-pending-reject');
+            });
+        });
+
+        Route::controller(RetailerController::class)->group(function () {
+            Route::group(['middleware' => 'auth:admin'], function () {
+                Route::get('/retailer/index', 'index')->name('admin-retailer-index');
             });
         });
     }
