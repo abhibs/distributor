@@ -12,9 +12,6 @@ Route::get('/test', function () {
     echo "Abhiram";
 });
 
-Route::get('super/stocklist/ajax/{zone_id}', [DistrictController::class, 'getSuperStockist']);
-Route::get('district/ajax/{super_stockist_id}', [DistributorController::class, 'getDistrictlist']);
-
 
 Route::group(
     ['prefix' => 'admin'],

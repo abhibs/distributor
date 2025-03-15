@@ -17,11 +17,7 @@ class DistributorController extends Controller
     }
 
 
-    public function getDistrictlist($super_stockist_id)
-    {
-        $districtlist = District::where('super_stockist_id', $super_stockist_id)->orderBy('name', 'ASC')->get();
-        return json_encode($districtlist);
-    }
+
 
     public function store(Request $request)
     {

@@ -3,21 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Distributor;
-use App\Models\District;
 use App\Models\Retailer;
-use App\Models\SuperStockist;
-
+use App\Models\Zone;
 use Illuminate\Http\Request;
 
 class RetailerController extends Controller
 {
     public function create()
     {
-        $districts = District::latest()->get();
-        $superstockists = SuperStockist::latest()->get();
-        $distributors = Distributor::latest()->get();
-        return view('user.retailer.create', compact('districts', 'distributors','superstockists'));
+        $zones = Zone::latest()->get();
+        return view('user.retailer.create', compact('zones'));
     }
+
+
+
+
+
     public function store(Request $request)
     {
         // dd($request->all());
@@ -35,7 +36,7 @@ class RetailerController extends Controller
             'image' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
-            
+
         ], [
             'district_id.required' => 'Please Select District Name',
             'super_stockist_id.required' => 'Please Select Super Stockist Name ',

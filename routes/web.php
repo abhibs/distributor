@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\PanShopController;
 use App\Http\Controllers\ProjectorController;
 use App\Http\Controllers\RetailerController;
@@ -22,6 +23,11 @@ Route::get('optimize', function () {
     Artisan::call('optimize');
     return "optimized!";
 });
+
+Route::get('super/stocklist/ajax/{zone_id}', [ApiController::class, 'getSuperStockist']);
+Route::get('district/ajax/{super_stockist_id}/{zone_id}', [ApiController::class, 'getDistrictlist']);
+Route::get('distributor/ajax/{district_id}/{super_stockist_id}/{zone_id}', [ApiController::class, 'getDistributorlist']);
+
 
 Route::get('', [UserController::class, 'userLogin'])->name('login');
 Route::get('/retailer/create', [RetailerController::class, 'create'])->name('retailer-create');

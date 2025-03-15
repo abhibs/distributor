@@ -16,12 +16,6 @@ class DistrictController extends Controller
         return view('admin.district.create', compact('zones'));
     }
 
-    public function getSuperStockist($zone_id)
-    {
-        $superstocklist = SuperStockist::where('zone_id', $zone_id)->orderBy('name', 'ASC')->get();
-        return json_encode($superstocklist);
-    }
-
     public function store(Request $request)
     {
         // dd($request->all());
