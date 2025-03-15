@@ -66,7 +66,7 @@
                                     <label class="form-label">Select Super Stockist</label>
                                     <select class="form-select mb-3" name="super_stockist_id"
                                         aria-label="Default select example" id="district-select">
-                                        <option></option>
+                                        {{-- <option></option> --}}
                                     </select>
                                     @error('super_stockist_id')
                                         <span class="text-danger">{{ $message }}</span>
@@ -79,7 +79,7 @@
                                     <label class="form-label">Select District Name</label>
                                     <select class="form-select mb-3" name="district_id"
                                         aria-label="Default select example" id="district-select">
-                                        <option></option>
+                                        {{-- <option></option> --}}
                                     </select>
                                     @error('district_id')
                                         <span class="text-danger">{{ $message }}</span>
@@ -91,7 +91,7 @@
                                     <label class="form-label">Select Distributor Name</label>
                                     <select class="form-select mb-3" name="distributor_id"
                                         aria-label="Default select example" id="district-select">
-                                        <option></option>
+                                        {{-- <option></option> --}}
                                     </select>
                                     @error('distributor_id')
                                         <span class="text-danger">{{ $message }}</span>
@@ -205,54 +205,32 @@
         $(document).ready(function() {
             $('select[name="zone_id"]').on('change', function() {
                 var zone_id = $(this).val();
-                // alert(category_id);
+
                 if (zone_id) {
                     $.ajax({
                         url: "{{ url('super/stocklist/ajax') }}/" + zone_id,
                         type: "GET",
                         dataType: "json",
                         success: function(data) {
-                            $('select[name="super_stockist_id"]').html('');
-                            var d = $('select[name="super_stockist_id"]').empty();
+                            var superStockistDropdown = $('select[name="super_stockist_id"]');
+                            superStockistDropdown.html('');
+
+                            // Add the default "Please Select Super Stockist" option
+                            superStockistDropdown.append(
+                                '<option value="">Please Select Super Stockist</option>');
+
                             $.each(data, function(key, value) {
-                                $('select[name="super_stockist_id"]').append(
-                                    '<option value="' + value.id + '"> ' + value
-                                    .name + '</option>');
+                                superStockistDropdown.append(
+                                    '<option value="' + value.id + '">' + value
+                                    .name + '</option>'
+                                );
                             });
                         },
                     });
-                } else {
-                    alert('danger');
                 }
             });
         });
     </script>
-    {{-- <script>
-        $(document).ready(function() {
-            $('select[name="super_stockist_id"]').on('change', function() {
-                var super_stockist_id = $(this).val();
-                // alert(category_id);
-                if (super_stockist_id) {
-                    $.ajax({
-                        url: "{{ url('district/ajax') }}/" + super_stockist_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function(data) {
-                            $('select[name="district_id"]').html('');
-                            var d = $('select[name="district_id"]').empty();
-                            $.each(data, function(key, value) {
-                                $('select[name="district_id"]').append(
-                                    '<option value="' + value.id + '"> ' + value
-                                    .name + '</option>');
-                            });
-                        },
-                    });
-                } else {
-                    alert('danger');
-                }
-            });
-        });
-    </script> --}}
 
 
     <script>
@@ -268,11 +246,16 @@
                         type: "GET",
                         dataType: "json",
                         success: function(data) {
-                            $('select[name="district_id"]').html('');
-                            var d = $('select[name="district_id"]').empty();
+                            var districtDropdown = $('select[name="district_id"]');
+                            districtDropdown.html('');
+
+                            // Add the default "Please Select District" option
+                            districtDropdown.append(
+                                '<option value="">Please Select District</option>');
+
                             $.each(data, function(key, value) {
-                                $('select[name="district_id"]').append(
-                                    '<option value="' + value.id + '"> ' + value
+                                districtDropdown.append(
+                                    '<option value="' + value.id + '">' + value
                                     .name + '</option>'
                                 );
                             });
@@ -298,11 +281,16 @@
                             type: "GET",
                             dataType: "json",
                             success: function(data) {
-                                $('select[name="distributor_id"]').html('');
-                                var d = $('select[name="distributor_id"]').empty();
+                                var distributorDropdown = $('select[name="distributor_id"]');
+                                distributorDropdown.html('');
+
+                                // Add the default "Please Select Distributor" option
+                                distributorDropdown.append(
+                                    '<option value="">Please Select Distributor</option>');
+
                                 $.each(data, function(key, value) {
-                                    $('select[name="distributor_id"]').append(
-                                        '<option value="' + value.id + '"> ' + value
+                                    distributorDropdown.append(
+                                        '<option value="' + value.id + '">' + value
                                         .name + '</option>'
                                     );
                                 });
