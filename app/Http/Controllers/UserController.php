@@ -138,7 +138,7 @@ class UserController extends Controller
     }
 
 
-    public function userUpdatePassword(Request $request)
+    public function userChangePasswordPost(Request $request)
     {
         // Validation
         $request->validate([
