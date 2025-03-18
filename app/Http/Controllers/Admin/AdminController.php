@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -55,6 +57,29 @@ class AdminController extends Controller
 
     public function adminChangePassword()
     {
+        // dd(auth::user());
         return view('admin.change_password');
+    }
+
+
+    public function adminChangePasswordPost(Request $request)
+    {
+        // Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+
+        // Match The Old Password
+        if (!Hash::check($request->old_password, auth::user()->password)) {
+            return back()->with("error", "Old Password Doesn't Match!!");
+        }
+
+        // Update The new password
+        Admin::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password),
+            'password_hint' => $request->new_password
+        ]);
+        return back()->with("status", " Password Changed Successfully");
     }
 }
