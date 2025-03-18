@@ -158,4 +158,10 @@ class UserController extends Controller
         ]);
         return back()->with("status", " Password Changed Successfully");
     }
+
+
+    public function userProfile()
+    {
+        return view('user.profile');
+    }
 }

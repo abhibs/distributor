@@ -29,6 +29,7 @@ Route::group(
                     Route::get('/logout',  'adminLogout')->name('admin-logout');
                     Route::get('/change/password', 'adminChangePassword')->name('admin-change-password');
                     Route::post('/change/password/post', 'adminChangePasswordPost')->name('admin-change-password-post');
+                    Route::get('/profile', 'adminProfile')->name('admin-profile');
                 });
             }
         );

@@ -82,4 +82,9 @@ class AdminController extends Controller
         ]);
         return back()->with("status", " Password Changed Successfully");
     }
+
+
+    public function adminProfile(){
+        return view('admin.profile');
+    }
 }
