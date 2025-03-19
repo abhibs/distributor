@@ -7,7 +7,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use Intervention\Image\Facades\Image;
 
 
 class AdminController extends Controller
@@ -88,5 +88,48 @@ class AdminController extends Controller
         $user = Auth::guard('admin')->user();
         // dd($user);
         return view('admin.profile', compact('user'));
+    }
+
+
+
+    public function adminProfileUpdate(Request $request)
+    {
+
+        // $admin = Admin::first();
+        $admin = Auth::guard('admin')->user();
+
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        $admin->phone = $request->phone;
+        $admin->address = $request->address;
+
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            @unlink(public_path('storage/admin/' . $admin->image));
+            $filename = 'admin' . time() . '.' . $image->getClientOriginalExtension();
+
+            // installing image intervention
+            // composer require intervention/image
+
+            // config/app.php
+            // Intervention\Image\ImageServiceProvider::class,
+            // 'Image' => Intervention\Image\Facades\Image::class,
+
+            // php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
+
+
+            Image::make($image)->resize(256, 256)->save('storage/admin/' . $filename);
+            $filePath = 'storage/admin/' . $filename;
+            $admin->image = $filename;
+        }
+        $admin->save();
+
+        $notification = array(
+            'message' => 'Admin Profile Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
     }
 }
