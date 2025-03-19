@@ -1,5 +1,6 @@
 @extends('admin.layout.app')
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <div class="main-content">
       <!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -37,6 +38,7 @@
                 <img src="{{ !empty($user->image) ? url($user->image) : url('no_image.jpg') }}" class="img-fluid rounded-circle p-1 bg-grd-danger shadow" width="170" height="170" alt="">
               </div>
             </div>
+			
               <div class="profile-info pt-5 d-flex align-items-center justify-content-center">
                 <div class="">
                   <h3>{{ @$user->name }}</h3>
@@ -78,11 +80,11 @@
 										<input type="number" class="form-control" name="phone" id="input3" placeholder="Enter Your Mobile Number" value="{{@$user->phone}}">
 									</div>
                   <div class="col-md-12">
-										<label for="input4" class="form-label">Image</label>
-										<input type="file" class="form-control" name="image" id="input4" placeholder="Enter Your Image">
+										<label for="image" class="form-label">Image</label>
+										<input type="file"  class="form-control" name="image" id="image" placeholder="Enter Your Image">
 									</div>
                   <div class="col-md-12">
-                    <img src="{{ !empty($user->image) ? url($user->image) : url('no_image.jpg') }}"
+                    <img id="showImage" src="{{ !empty($user->image) ? url($user->image) : url('no_image.jpg') }}"
                     class="rounded-circle p-1 shadow mb-3" width="90" height="90" alt="">
 									</div>
 									<div class="col-md-12">
@@ -100,4 +102,15 @@
           </div>  
         </div><!--end row-->
     </div>
+	<script type="text/javascript">
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
 @endsection
