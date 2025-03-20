@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Auth;
+use Intervention\Image\Facades\Image;
+
 
 class UserController extends Controller
 {
@@ -164,5 +166,47 @@ class UserController extends Controller
         $user = Auth::guard('web')->user();
             // dd($user);
         return view('user.profile', compact('user'));
+    }
+
+
+    public function userProfileUpdate(Request $request)
+    {
+        // $admin = Admin::first();
+        $admin = Auth::guard('web')->user();
+
+        $admin->code = $request->code;
+        $admin->name = $request->name;
+        $admin->phone = $request->phone;
+        $admin->designation = $request->designation;
+        $admin->aadhar = $request->aadhar;
+
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            // @unlink(public_path('storage/user/' . $admin->image));
+            $filename = 'user' . time() . '.' . $image->getClientOriginalExtension();
+
+            // installing image intervention
+            // composer require intervention/image
+
+            // config/app.php
+            // Intervention\Image\ImageServiceProvider::class,
+            // 'Image' => Intervention\Image\Facades\Image::class,
+
+            // php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
+
+
+            Image::make($image)->resize(256, 256)->save('storage/user/' . $filename);
+            $filePath = 'storage/user/' . $filename;
+            $admin->image = $filename;
+
+        }
+        $admin->save();
+
+        $notification = array(
+            'message' => 'User Profile Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 }

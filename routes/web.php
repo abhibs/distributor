@@ -46,6 +46,7 @@ Route::group(
                 Route::get('/change/password', 'userChangePassword')->name('user-change-passord');
                 Route::post('/change/password/post', 'userChangePasswordPost')->name('user-change-passord-post');
                 Route::get('/profile', 'userProfile')->name('user-profile');
+                Route::post('/profile/update', 'userProfileUpdate')->name('user-profile-update');
             });
         });
 

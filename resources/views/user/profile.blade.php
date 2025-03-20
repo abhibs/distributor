@@ -69,7 +69,7 @@
                     <h5 class="mb-0 fw-bold">Edit Profile</h5>
                   </div>
                 </div>
-								<form class="row g-4" method="post" action="" enctype="multipart/form-data">
+								<form class="row g-4" method="post" action="{{route('user-profile-update')}}" enctype="multipart/form-data">
                   @csrf 
 									<div class="col-md-12">
 										<label for="input1" class="form-label">User Code</label>
@@ -100,7 +100,7 @@
 										<input type="file"  class="form-control" name="image" id="image" placeholder="Enter Your Image">
 									</div>
                   <div class="col-md-12">
-                    <img id="showImage" src="{{ !empty($user->image) ? url('/storage/admin/'.$user->image) : url('no_image.jpg') }}"
+                    <img id="showImage" src="{{ !empty($user->image) ? url('/storage/user/'.$user->image) : url('no_image.jpg') }}"
                     class="rounded-circle p-1 shadow mb-3" width="90" height="90" alt="">
 									</div>
 									<div class="col-md-12">
