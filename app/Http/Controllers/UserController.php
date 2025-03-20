@@ -160,8 +160,9 @@ class UserController extends Controller
     }
 
 
-    public function userProfile()
-    {
-        return view('user.profile');
+    public function userProfile(){
+        $user = Auth::guard('web')->user();
+            // dd($user);
+        return view('user.profile', compact('user'));
     }
 }

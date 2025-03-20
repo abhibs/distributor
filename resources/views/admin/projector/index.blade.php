@@ -29,9 +29,8 @@
                                 <th>Country</th>
                                 <th>Region</th>
                                 <th>City</th>
-                                <th>Latitude</th>
-                                <th>Longitude</th>
                                 <th>Video</th>
+                                <th>Map</th>
                                 <th>Date</th>
                             </tr>
                         </thead>
@@ -44,11 +43,11 @@
                                     <td>{{ $item->country }}</td>
                                     <td>{{ $item->region }}</td>
                                     <td>{{ $item->city }}</td>
-                                    <td>{{ $item->latitude }}</td>
-                                    <td>{{ $item->longitude }}</td>
                                     <td><a href="{{ asset($item->video) }}" target="_blank"><video
                                                 src="{{ asset($item->video) }}" style="width: 100px; height:100px;"></a>
                                     </td>
+                                    <td><a href="https://www.google.com/maps?q={{ $item->latitude }},{{ $item->longitude }}" target="_blank">View Location</a></td>
+
                                     <td>{{ $item->created_at->format('M d Y') }}</td>
                                 </tr>
                             @endforeach
@@ -60,9 +59,8 @@
                                 <th>Country</th>
                                 <th>Region</th>
                                 <th>City</th>
-                                <th>Latitude</th>
-                                <th>Longitude</th>
                                 <th>Video</th>
+                                <th>Map</th>
                                 <th>Date</th>
                             </tr>
                         </tfoot>

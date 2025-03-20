@@ -38,8 +38,7 @@
                                 <th>State</th>
                                 <th>Pincode</th>
                                 <th>Image</th>
-                                <th>Longitude</th>
-                                <th>Latitude</th>
+                                <th>Map</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,8 +62,7 @@
                                                 src="{{ asset($item->image) }}" width="70px" height="40px"
                                                 alt=""></a>
                                     </td>
-                                    <td>{{ $item->latitude }}</td>
-                                    <td>{{ $item->longitude }}</td>
+                                    <td><a href="https://www.google.com/maps?q={{ $item->latitude }},{{ $item->longitude }}" target="_blank">View Location</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -84,8 +82,8 @@
                                 <th>State</th>
                                 <th>Pincode</th>
                                 <th>Image</th>
-                                <th>Longitude</th>
-                                <th>Latitude</th>
+                                <th>Map</th>
+
 
                             </tr>
                         </tfoot>

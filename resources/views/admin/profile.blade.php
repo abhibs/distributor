@@ -40,7 +40,7 @@
             </div>
 			
               <div class="profile-info pt-5 d-flex align-items-center justify-content-center">
-                <div class="">
+                <div class="text-center">
                   <h3>{{ @$user->name }}</h3>
                   <p class="mb-0">
                     {{ @$user->email }}
