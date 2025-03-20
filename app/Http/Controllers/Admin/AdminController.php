@@ -4,10 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Retailer;
+use App\Models\WallPoster;
+use App\Models\PanShop;
+use App\Models\Projector;
+use App\Models\User;
+use App\Models\Zone;
+use App\Models\SuperStockist;
+use App\Models\District;
+use App\Models\Distributor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Carbon;
 
 
 class AdminController extends Controller
@@ -41,7 +51,24 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin.index');
+        $todayDate = Carbon::now()->toDateString();
+        $todayRetailers = Retailer::whereDate('created_at', $todayDate)->count();
+        $todayWallPoster = WallPoster::whereDate('created_at', $todayDate)->count();
+        $todayPanShop = PanShop::whereDate('created_at', $todayDate)->count();
+        $todayProjector = Projector::whereDate('created_at', $todayDate)->count();
+        $Retailers = Retailer::count();
+        $WallPoster = WallPoster::count();
+        $PanShop = PanShop::count();
+        $Projector = Projector::count();
+        $RegisteredUser = User::where('status', 'Pending')->count();
+        $ApprovedUser = User::where('status', 'Approved')->count();
+        $RejectedUser = User::where('status', 'Rejected')->count();
+        $Zones = Zone::count();
+        $SuperStockists = SuperStockist::count();
+        $Districts = District::count();
+        $Distributors = Distributor::count();
+    
+        return view('admin.index', compact('todayRetailers', 'todayWallPoster', 'todayPanShop', 'todayProjector','Retailers', 'WallPoster', 'PanShop', 'Projector', 'RegisteredUser', 'RegisteredUser', 'ApprovedUser', 'RejectedUser', 'Zones', 'SuperStockists', 'Districts', 'Distributors'));
     }
 
     public function adminLogout()
@@ -94,7 +121,6 @@ class AdminController extends Controller
 
     public function adminProfileUpdate(Request $request)
     {
-
         // $admin = Admin::first();
         $admin = Auth::guard('admin')->user();
 

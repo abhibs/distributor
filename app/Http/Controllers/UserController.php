@@ -182,7 +182,7 @@ class UserController extends Controller
 
         if ($request->file('image')) {
             $image = $request->file('image');
-            // @unlink(public_path('storage/user/' . $admin->image));
+            @unlink(public_path('storage/user/' . $admin->image));
             $filename = 'user' . time() . '.' . $image->getClientOriginalExtension();
 
             // installing image intervention

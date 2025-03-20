@@ -1,7 +1,8 @@
 <aside class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div class="logo-icon ">
-            <img src="{{ asset('admin/assets/images/attica-image.png') }}" width="70px" alt="">
+            <!-- <img src="{{ asset('admin/assets/images/attica-image.png') }}" width="70px" alt=""> -->
+            <h5 class="mb-0">User Dashboard</h5>
         </div>
 
         <!-- <div class="sidebar-close">
